@@ -1,10 +1,17 @@
-# 🧬 Molecular Evolutionary Genetics Analysis — MEGA12 & ITOL Pipeline
+<div align="center">
+  <img src="docs/logo.jpg" alt="Suleiman MEGA Molecular Evolutionary Tree Logo" width="260" style="border-radius: 50%;" />
 
-[![MEGA](https://img.shields.io/badge/Tool-MEGA_12-darkgreen?style=flat-square)](https://www.megasoftware.net/)
-[![ITOL](https://img.shields.io/badge/Visualization-ITOL-blue?style=flat-square)](https://itol.embl.de/)
-[![Method](https://img.shields.io/badge/Method-Maximum_Likelihood_|_NJ_|_RelTime-orange?style=flat-square)](https://doi.org/10.1093/molbev/msab120)
-[![Dataset](https://img.shields.io/badge/NCBI-GenBank_Sequences-informational?style=flat-square)](https://www.ncbi.nlm.nih.gov/genbank/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+  # 🧬 Suleiman MEGA Molecular Evolutionary Tree
+  ### Molecular Evolutionary Genetics Analysis — MEGA12 & ITOL Pipeline
+
+  [![Organization](https://img.shields.io/badge/GitHub-SuleimanMEGAMolecularEvolutionaryTree-181717?style=flat-square&logo=github)](https://github.com/SuleimanMEGAMolecularEvolutionaryTree)
+  [![GitHub Pages](https://img.shields.io/badge/Live_Portal-github.io-00f2fe?style=flat-square&logo=githubpages)](https://suleimanmegamolecularevolutionarytree.github.io/)
+  [![MEGA](https://img.shields.io/badge/Tool-MEGA_12-darkgreen?style=flat-square)](https://www.megasoftware.net/)
+  [![ITOL](https://img.shields.io/badge/Visualization-ITOL-blue?style=flat-square)](https://itol.embl.de/)
+  [![Method](https://img.shields.io/badge/Method-Maximum_Likelihood_|_NJ_|_RelTime-orange?style=flat-square)](https://doi.org/10.1093/molbev/msab120)
+  [![Dataset](https://img.shields.io/badge/NCBI-GenBank_Sequences-informational?style=flat-square)](https://www.ncbi.nlm.nih.gov/genbank/)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+</div>
 
 ## 📌 Overview
 
