@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="docs/logo_pro.png" alt="Suleiman MEGA Molecular Evolutionary Tree Logo" width="280" />
+  <img src="https://raw.githubusercontent.com/SuleimanMEGAMolecularEvolutionaryTree/.github/main/profile/logo_pro.png" alt="Suleiman MEGA Molecular Evolutionary Tree Logo" width="280" />
 
   # 🧬 Suleiman MEGA Molecular Evolutionary Tree
   ### Molecular Evolutionary Genetics Analysis — MEGA12 & ITOL Pipeline
