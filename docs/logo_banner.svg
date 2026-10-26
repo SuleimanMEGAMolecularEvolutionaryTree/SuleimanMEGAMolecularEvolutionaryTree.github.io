@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 200" width="1120" height="400">
+  <defs>
+    <style>
+      .title { font-family: 'Helvetica Neue', 'Arial', sans-serif; font-weight: 700; letter-spacing: 3px; }
+      .subtitle { font-family: 'Helvetica Neue', 'Arial', sans-serif; font-weight: 400; letter-spacing: 1.5px; }
+      .mono { font-family: 'Courier New', monospace; font-weight: 600; letter-spacing: 4px; }
+    </style>
+  </defs>
+
+  <!-- White background -->
+  <rect width="560" height="200" fill="#ffffff"/>
+
+  <!-- ====== ICON GROUP (left side, 0–160px wide, vertically centered) ====== -->
+  <g transform="translate(20, 10)">
+
+    <!-- ── DNA double helix (bottom trunk, y=130..190) ── -->
+    <!-- Strand A -->
+    <path d="M 70 190 C 60 180, 80 170, 70 160 C 60 150, 80 140, 70 130"
+          fill="none" stroke="#1E3A5F" stroke-width="2.2" stroke-linecap="round"/>
+    <!-- Strand B -->
+    <path d="M 70 190 C 80 180, 60 170, 70 160 C 80 150, 60 140, 70 130"
+          fill="none" stroke="#0D9488" stroke-width="2.2" stroke-linecap="round"/>
+    <!-- Base pairs -->
+    <line x1="63" y1="184" x2="77" y2="184" stroke="#94A3B8" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="64" y1="174" x2="76" y2="174" stroke="#94A3B8" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="64" y1="164" x2="76" y2="164" stroke="#94A3B8" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="63" y1="154" x2="77" y2="154" stroke="#94A3B8" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="64" y1="144" x2="76" y2="144" stroke="#94A3B8" stroke-width="1.3" stroke-linecap="round"/>
+
+    <!-- ── Trunk (y=90..130) ── -->
+    <line x1="70" y1="130" x2="70" y2="90" stroke="#1E3A5F" stroke-width="2.8" stroke-linecap="round"/>
+
+    <!-- ── Level 1 split (y=90): left at x=35, right at x=105 ── -->
+    <line x1="70" y1="90" x2="35" y2="90" stroke="#1E3A5F" stroke-width="2.2" stroke-linecap="round"/>
+    <line x1="70" y1="90" x2="105" y2="90" stroke="#1E3A5F" stroke-width="2.2" stroke-linecap="round"/>
+    <!-- Vertical legs up -->
+    <line x1="35" y1="90" x2="35" y2="60" stroke="#1E3A5F" stroke-width="2.2" stroke-linecap="round"/>
+    <line x1="105" y1="90" x2="105" y2="60" stroke="#1E3A5F" stroke-width="2.2" stroke-linecap="round"/>
+    <!-- Node at root split -->
+    <circle cx="70" cy="90" r="3.5" fill="#1E3A5F"/>
+
+    <!-- ── Level 2 left split (y=60): x=18 & x=52 ── -->
+    <line x1="35" y1="60" x2="18" y2="60" stroke="#1E3A5F" stroke-width="1.7" stroke-linecap="round"/>
+    <line x1="35" y1="60" x2="52" y2="60" stroke="#1E3A5F" stroke-width="1.7" stroke-linecap="round"/>
+    <line x1="18" y1="60" x2="18" y2="38" stroke="#1E3A5F" stroke-width="1.7" stroke-linecap="round"/>
+    <line x1="52" y1="60" x2="52" y2="38" stroke="#1E3A5F" stroke-width="1.7" stroke-linecap="round"/>
+    <circle cx="35" cy="60" r="2.8" fill="#1E3A5F"/>
+
+    <!-- ── Level 2 right split (y=60): x=88 & x=122 ── -->
+    <line x1="105" y1="60" x2="88" y2="60" stroke="#0D9488" stroke-width="1.7" stroke-linecap="round"/>
+    <line x1="105" y1="60" x2="122" y2="60" stroke="#0D9488" stroke-width="1.7" stroke-linecap="round"/>
+    <line x1="88" y1="60" x2="88" y2="38" stroke="#0D9488" stroke-width="1.7" stroke-linecap="round"/>
+    <line x1="122" y1="60" x2="122" y2="38" stroke="#0D9488" stroke-width="1.7" stroke-linecap="round"/>
+    <circle cx="105" cy="60" r="2.8" fill="#0D9488"/>
+
+    <!-- ── Level 3 splits (y=38) ── -->
+    <!-- Left-left: x=10 & x=26 -->
+    <line x1="18" y1="38" x2="10" y2="38" stroke="#1E3A5F" stroke-width="1.3"/>
+    <line x1="18" y1="38" x2="26" y2="38" stroke="#1E3A5F" stroke-width="1.3"/>
+    <line x1="10" y1="38" x2="10" y2="22" stroke="#1E3A5F" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="26" y1="38" x2="26" y2="22" stroke="#1E3A5F" stroke-width="1.3" stroke-linecap="round"/>
+    <circle cx="18" cy="38" r="2" fill="#1E3A5F"/>
+
+    <!-- Left-right: x=44 & x=60 -->
+    <line x1="52" y1="38" x2="44" y2="38" stroke="#1E3A5F" stroke-width="1.3"/>
+    <line x1="52" y1="38" x2="60" y2="38" stroke="#1E3A5F" stroke-width="1.3"/>
+    <line x1="44" y1="38" x2="44" y2="22" stroke="#1E3A5F" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="60" y1="38" x2="60" y2="22" stroke="#1E3A5F" stroke-width="1.3" stroke-linecap="round"/>
+    <circle cx="52" cy="38" r="2" fill="#1E3A5F"/>
+
+    <!-- Right-left: x=80 & x=96 -->
+    <line x1="88" y1="38" x2="80" y2="38" stroke="#0D9488" stroke-width="1.3"/>
+    <line x1="88" y1="38" x2="96" y2="38" stroke="#0D9488" stroke-width="1.3"/>
+    <line x1="80" y1="38" x2="80" y2="22" stroke="#0D9488" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="96" y1="38" x2="96" y2="22" stroke="#0D9488" stroke-width="1.3" stroke-linecap="round"/>
+    <circle cx="88" cy="38" r="2" fill="#0D9488"/>
+
+    <!-- Right-right: x=114 & x=130 -->
+    <line x1="122" y1="38" x2="114" y2="38" stroke="#0D9488" stroke-width="1.3"/>
+    <line x1="122" y1="38" x2="130" y2="38" stroke="#0D9488" stroke-width="1.3"/>
+    <line x1="114" y1="38" x2="114" y2="22" stroke="#0D9488" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="130" y1="38" x2="130" y2="22" stroke="#0D9488" stroke-width="1.3" stroke-linecap="round"/>
+    <circle cx="122" cy="38" r="2" fill="#0D9488"/>
+
+    <!-- ── Leaf terminal nodes ── -->
+    <circle cx="10" cy="22" r="4" fill="#1E3A5F"/>
+    <circle cx="26" cy="22" r="4" fill="#1E3A5F"/>
+    <circle cx="44" cy="22" r="4" fill="#334155"/>
+    <circle cx="60" cy="22" r="4" fill="#334155"/>
+    <circle cx="80" cy="22" r="4" fill="#0D9488"/>
+    <circle cx="96" cy="22" r="4" fill="#0D9488"/>
+    <circle cx="114" cy="22" r="4" fill="#0F766E"/>
+    <circle cx="130" cy="22" r="4" fill="#0F766E"/>
+
+    <!-- Subtle horizontal divider line under icon -->
+    <line x1="0" y1="198" x2="150" y2="198" stroke="#E2E8F0" stroke-width="1"/>
+
+  </g>
+
+  <!-- ====== VERTICAL DIVIDER ====== -->
+  <line x1="176" y1="20" x2="176" y2="180" stroke="#CBD5E1" stroke-width="1.2"/>
+
+  <!-- ====== TEXT GROUP (right side) ====== -->
+  <g transform="translate(196, 0)">
+    <!-- Eyebrow tag -->
+    <text x="0" y="50" class="mono" font-size="9" fill="#0D9488">MOLECULAR EVOLUTIONARY GENETICS</text>
+
+    <!-- Main title: SULEIMAN MEGA -->
+    <text x="0" y="90" class="title" font-size="38" fill="#1E3A5F">SULEIMAN</text>
+    <text x="236" y="90" class="title" font-size="38" fill="#0D9488">MEGA</text>
+
+    <!-- Subtitle -->
+    <text x="0" y="118" class="subtitle" font-size="15" fill="#64748B" letter-spacing="2">Molecular Evolutionary Tree</text>
+
+    <!-- Thin rule below subtitle -->
+    <line x1="0" y1="132" x2="360" y2="132" stroke="#E2E8F0" stroke-width="1"/>
+
+    <!-- Bottom metadata line -->
+    <text x="0" y="152" class="mono" font-size="8.5" fill="#94A3B8">PHYLOGENETICS  ·  MEGA 12  ·  ITOL  ·  COL1A1  ·  GTR+G+I</text>
+  </g>
+
+</svg>

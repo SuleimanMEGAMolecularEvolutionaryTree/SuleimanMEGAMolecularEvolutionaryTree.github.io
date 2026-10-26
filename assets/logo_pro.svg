@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="1200" height="1200">
+  <defs>
+    <style>
+      .t1 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; }
+      .t2 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 400; }
+      .t3 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 600; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="600" fill="#FFFFFF"/>
+
+  <!-- Very subtle top accent bar -->
+  <rect x="0" y="0" width="600" height="5" fill="#1E3A5F"/>
+  <rect x="300" y="0" width="300" height="5" fill="#0D9488"/>
+
+  <!-- ======================================================= -->
+  <!-- PHYLOGENETIC CLADOGRAM TREE ICON (centered, y=60..310)  -->
+  <!-- ======================================================= -->
+  <!-- The tree is a proper horizontal cladogram.              -->
+  <!-- Backbone runs vertically. All splits are orthogonal.    -->
+  <!-- Root at bottom center (300, 310) → top tips at y=60     -->
+  <!-- ======================================================= -->
+
+  <g id="tree" transform="translate(0,0)">
+
+    <!-- ── TRUNK root→first split ── y=310 to y=265 -->
+    <line x1="300" y1="310" x2="300" y2="265" stroke="#1E3A5F" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- Root node -->
+    <circle cx="300" cy="310" r="6" fill="#1E3A5F"/>
+
+    <!-- ── LEVEL 1: split at y=265 into L(x=175) and R(x=425) ── -->
+    <line x1="175" y1="265" x2="425" y2="265" stroke="#1E3A5F" stroke-width="3" stroke-linecap="round"/>
+    <!-- Left leg up → y=215 -->
+    <line x1="175" y1="265" x2="175" y2="215" stroke="#1E3A5F" stroke-width="3" stroke-linecap="round"/>
+    <!-- Right leg up → y=215 -->
+    <line x1="425" y1="265" x2="425" y2="215" stroke="#0D9488" stroke-width="3" stroke-linecap="round"/>
+    <!-- L1 node -->
+    <circle cx="300" cy="265" r="5.5" fill="#1E3A5F"/>
+
+    <!-- ── LEVEL 2 LEFT: split at y=215, x=175 → L(120) R(230) ── -->
+    <line x1="120" y1="215" x2="230" y2="215" stroke="#1E3A5F" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="120" y1="215" x2="120" y2="165" stroke="#1E3A5F" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="230" y1="215" x2="230" y2="165" stroke="#1E3A5F" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="175" cy="215" r="4.5" fill="#1E3A5F"/>
+
+    <!-- ── LEVEL 2 RIGHT: split at y=215, x=425 → L(370) R(480) ── -->
+    <line x1="370" y1="215" x2="480" y2="215" stroke="#0D9488" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="370" y1="215" x2="370" y2="165" stroke="#0D9488" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="480" y1="215" x2="480" y2="165" stroke="#0D9488" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="425" cy="215" r="4.5" fill="#0D9488"/>
+
+    <!-- ── LEVEL 3 LEFT-LEFT: x=120, y=165 → L(90) R(150) ── -->
+    <line x1="90" y1="165" x2="150" y2="165" stroke="#1E3A5F" stroke-width="2" stroke-linecap="round"/>
+    <line x1="90" y1="165" x2="90" y2="115" stroke="#1E3A5F" stroke-width="2" stroke-linecap="round"/>
+    <line x1="150" y1="165" x2="150" y2="115" stroke="#1E3A5F" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="120" cy="165" r="3.5" fill="#1E3A5F"/>
+
+    <!-- ── LEVEL 3 LEFT-RIGHT: x=230, y=165 → L(200) R(260) ── -->
+    <line x1="200" y1="165" x2="260" y2="165" stroke="#334155" stroke-width="2" stroke-linecap="round"/>
+    <line x1="200" y1="165" x2="200" y2="115" stroke="#334155" stroke-width="2" stroke-linecap="round"/>
+    <line x1="260" y1="165" x2="260" y2="115" stroke="#334155" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="230" cy="165" r="3.5" fill="#334155"/>
+
+    <!-- ── LEVEL 3 RIGHT-LEFT: x=370, y=165 → L(340) R(400) ── -->
+    <line x1="340" y1="165" x2="400" y2="165" stroke="#0D9488" stroke-width="2" stroke-linecap="round"/>
+    <line x1="340" y1="165" x2="340" y2="115" stroke="#0D9488" stroke-width="2" stroke-linecap="round"/>
+    <line x1="400" y1="165" x2="400" y2="115" stroke="#0D9488" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="370" cy="165" r="3.5" fill="#0D9488"/>
+
+    <!-- ── LEVEL 3 RIGHT-RIGHT: x=480, y=165 → L(450) R(510) ── -->
+    <line x1="450" y1="165" x2="510" y2="165" stroke="#0F766E" stroke-width="2" stroke-linecap="round"/>
+    <line x1="450" y1="165" x2="450" y2="115" stroke="#0F766E" stroke-width="2" stroke-linecap="round"/>
+    <line x1="510" y1="165" x2="510" y2="115" stroke="#0F766E" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="480" cy="165" r="3.5" fill="#0F766E"/>
+
+    <!-- ── LEVEL 4: Final splits at y=115 ── -->
+    <!-- LL: x=90 → 72,108 -->
+    <line x1="72" y1="115" x2="108" y2="115" stroke="#1E3A5F" stroke-width="1.5"/>
+    <line x1="72" y1="115" x2="72" y2="85" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="108" y1="115" x2="108" y2="85" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="90" cy="115" r="2.8" fill="#1E3A5F"/>
+    <!-- LR: x=150 → 132,168 -->
+    <line x1="132" y1="115" x2="168" y2="115" stroke="#1E3A5F" stroke-width="1.5"/>
+    <line x1="132" y1="115" x2="132" y2="85" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="168" y1="115" x2="168" y2="85" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="150" cy="115" r="2.8" fill="#1E3A5F"/>
+    <!-- LRL: x=200 → 182,218 -->
+    <line x1="182" y1="115" x2="218" y2="115" stroke="#334155" stroke-width="1.5"/>
+    <line x1="182" y1="115" x2="182" y2="85" stroke="#334155" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="218" y1="115" x2="218" y2="85" stroke="#334155" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="200" cy="115" r="2.8" fill="#334155"/>
+    <!-- LRR: x=260 → 242,278 -->
+    <line x1="242" y1="115" x2="278" y2="115" stroke="#334155" stroke-width="1.5"/>
+    <line x1="242" y1="115" x2="242" y2="85" stroke="#334155" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="278" y1="115" x2="278" y2="85" stroke="#334155" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="260" cy="115" r="2.8" fill="#334155"/>
+    <!-- RLL: x=340 → 322,358 -->
+    <line x1="322" y1="115" x2="358" y2="115" stroke="#0D9488" stroke-width="1.5"/>
+    <line x1="322" y1="115" x2="322" y2="85" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="358" y1="115" x2="358" y2="85" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="340" cy="115" r="2.8" fill="#0D9488"/>
+    <!-- RLR: x=400 → 382,418 -->
+    <line x1="382" y1="115" x2="418" y2="115" stroke="#0D9488" stroke-width="1.5"/>
+    <line x1="382" y1="115" x2="382" y2="85" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="418" y1="115" x2="418" y2="85" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="400" cy="115" r="2.8" fill="#0D9488"/>
+    <!-- RRL: x=450 → 432,468 -->
+    <line x1="432" y1="115" x2="468" y2="115" stroke="#0F766E" stroke-width="1.5"/>
+    <line x1="432" y1="115" x2="432" y2="85" stroke="#0F766E" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="468" y1="115" x2="468" y2="85" stroke="#0F766E" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="450" cy="115" r="2.8" fill="#0F766E"/>
+    <!-- RRR: x=510 → 492,528 -->
+    <line x1="492" y1="115" x2="528" y2="115" stroke="#0F766E" stroke-width="1.5"/>
+    <line x1="492" y1="115" x2="492" y2="85" stroke="#0F766E" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="528" y1="115" x2="528" y2="85" stroke="#0F766E" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="510" cy="115" r="2.8" fill="#0F766E"/>
+
+    <!-- ── TERMINAL LEAF NODES (y=85) ── filled squares for taxa, a publishing convention -->
+    <rect x="68" y="78" width="8" height="8" rx="1" fill="#1E3A5F"/>
+    <rect x="104" y="78" width="8" height="8" rx="1" fill="#1E3A5F"/>
+    <rect x="128" y="78" width="8" height="8" rx="1" fill="#1E3A5F"/>
+    <rect x="164" y="78" width="8" height="8" rx="1" fill="#1E3A5F"/>
+    <rect x="178" y="78" width="8" height="8" rx="1" fill="#334155"/>
+    <rect x="214" y="78" width="8" height="8" rx="1" fill="#334155"/>
+    <rect x="238" y="78" width="8" height="8" rx="1" fill="#334155"/>
+    <rect x="274" y="78" width="8" height="8" rx="1" fill="#334155"/>
+    <rect x="318" y="78" width="8" height="8" rx="1" fill="#0D9488"/>
+    <rect x="354" y="78" width="8" height="8" rx="1" fill="#0D9488"/>
+    <rect x="378" y="78" width="8" height="8" rx="1" fill="#0D9488"/>
+    <rect x="414" y="78" width="8" height="8" rx="1" fill="#0D9488"/>
+    <rect x="428" y="78" width="8" height="8" rx="1" fill="#0F766E"/>
+    <rect x="464" y="78" width="8" height="8" rx="1" fill="#0F766E"/>
+    <rect x="488" y="78" width="8" height="8" rx="1" fill="#0F766E"/>
+    <rect x="524" y="78" width="8" height="8" rx="1" fill="#0F766E"/>
+
+  </g>
+
+  <!-- ======================================================= -->
+  <!-- DNA DOUBLE HELIX (below trunk, y=310..440)              -->
+  <!-- Two strands crossing, with base-pair rungs              -->
+  <!-- ======================================================= -->
+  <g id="dna">
+    <!-- Strand 1: sine curve — peaks left -->
+    <path d="M300,310 C285,328 315,346 300,364 C285,382 315,400 300,418 C285,436 315,454 300,472"
+          fill="none" stroke="#1E3A5F" stroke-width="3" stroke-linecap="round"/>
+    <!-- Strand 2: sine curve — peaks right -->
+    <path d="M300,310 C315,328 285,346 300,364 C315,382 285,400 300,418 C315,436 285,454 300,472"
+          fill="none" stroke="#0D9488" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Base pair rungs — where strands meet/cross -->
+    <line x1="289" y1="318" x2="311" y2="318" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+    <line x1="286" y1="336" x2="314" y2="336" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+    <line x1="289" y1="354" x2="311" y2="354" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+    <line x1="286" y1="373" x2="314" y2="373" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+    <line x1="289" y1="391" x2="311" y2="391" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+    <line x1="286" y1="409" x2="314" y2="409" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+    <line x1="289" y1="427" x2="311" y2="427" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+    <line x1="286" y1="445" x2="314" y2="445" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+    <line x1="289" y1="463" x2="311" y2="463" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- ======================================================= -->
+  <!-- TYPOGRAPHY                                              -->
+  <!-- ======================================================= -->
+
+  <!-- Thin rule above text -->
+  <line x1="60" y1="495" x2="540" y2="495" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <!-- Main name -->
+  <text x="300" y="535" text-anchor="middle" class="t1"
+        font-size="44" fill="#1E3A5F" letter-spacing="5">SULEIMAN</text>
+
+  <!-- MEGA accent -->
+  <text x="300" y="572" text-anchor="middle" class="t1"
+        font-size="26" fill="#0D9488" letter-spacing="10">MEGA</text>
+
+  <!-- Full project title -->
+  <text x="300" y="597" text-anchor="middle" class="t2"
+        font-size="13.5" fill="#64748B" letter-spacing="2">Molecular Evolutionary Tree</text>
+
+  <!-- Bottom accent bar -->
+  <rect x="0" y="595" width="600" height="5" fill="#F1F5F9"/>
+</svg>
