@@ -16,5 +16,6 @@ __pycache__/
 venv/
 env/
 .env/
+.pytest_cache/
 
 # Large alignment/checkpoint directories to ignore (if any)

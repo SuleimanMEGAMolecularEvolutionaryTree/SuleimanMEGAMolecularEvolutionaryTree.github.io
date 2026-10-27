@@ -4,31 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Suleiman MEGA — Molecular Evolutionary Tree</title>
-  <meta name="description" content="Molecular Evolutionary Genetics Analysis — MEGA12 & ITOL Pipeline for Vertebrate Phylogenetics">
+  <meta name="description" content="Molecular Evolutionary Genetics Analysis (MEGA12 & ITOL) — Vertebrate Phylogenetics & Timetree Reconstruction">
   <link rel="icon" type="image/svg+xml" href="docs/logo.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #070b14;
       --card-bg: rgba(15, 23, 42, 0.75);
       --card-border: rgba(56, 189, 248, 0.15);
-      --card-hover: rgba(56, 189, 248, 0.25);
+      --card-hover: rgba(56, 189, 248, 0.35);
       --text: #f1f5f9;
       --text-muted: #94a3b8;
       --accent-cyan: #00f2fe;
       --accent-blue: #3b82f6;
       --accent-green: #10b981;
       --accent-purple: #8b5cf6;
-      --glow: rgba(0, 242, 254, 0.2);
+      --accent-amber: #f59e0b;
+      --glow: rgba(0, 242, 254, 0.25);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -40,7 +37,7 @@
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 0 auto;
       padding: 2.5rem 1.5rem;
     }
@@ -48,7 +45,7 @@
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: 3rem 1rem 4rem;
+      padding: 3rem 1rem 3.5rem;
       position: relative;
     }
 
@@ -58,8 +55,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 450px;
-      height: 450px;
+      width: 500px;
+      height: 500px;
       background: radial-gradient(circle, rgba(0, 242, 254, 0.12) 0%, transparent 70%);
       pointer-events: none;
       z-index: 0;
@@ -75,18 +72,18 @@
     .logo-img {
       width: 220px;
       height: 220px;
-      border-radius: 12px;
-      border: 1px solid rgba(0, 242, 254, 0.2);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      border-radius: 14px;
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      box-shadow: 0 4px 25px rgba(0, 242, 254, 0.2);
       object-fit: contain;
-      background: #fff;
+      background: #ffffff;
       padding: 10px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .logo-img:hover {
-      transform: scale(1.05) rotate(2deg);
-      box-shadow: 0 0 50px rgba(0, 242, 254, 0.45);
+      transform: scale(1.04) rotate(1deg);
+      box-shadow: 0 6px 35px rgba(0, 242, 254, 0.4);
     }
 
     .badge-bar {
@@ -112,22 +109,22 @@
     .badge-cyan { color: var(--accent-cyan); border-color: rgba(0, 242, 254, 0.3); }
     .badge-green { color: var(--accent-green); border-color: rgba(16, 185, 129, 0.3); }
     .badge-blue { color: var(--accent-blue); border-color: rgba(59, 130, 246, 0.3); }
+    .badge-amber { color: var(--accent-amber); border-color: rgba(245, 158, 11, 0.3); }
 
     h1 {
-      font-size: 2.75rem;
+      font-size: 2.85rem;
       font-weight: 800;
       letter-spacing: -0.02em;
       background: linear-gradient(135deg, #ffffff 40%, var(--accent-cyan) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin-bottom: 0.75rem;
-      position: relative;
     }
 
     .subtitle {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       color: var(--text-muted);
-      max-width: 750px;
+      max-width: 800px;
       margin: 0 auto 2rem;
       font-weight: 400;
     }
@@ -149,6 +146,7 @@
       text-decoration: none;
       font-size: 0.95rem;
       transition: all 0.25s ease;
+      cursor: pointer;
     }
 
     .btn-primary {
@@ -177,42 +175,178 @@
     /* Grid cards */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
-      margin: 3rem 0;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 2.5rem 0;
     }
 
     .card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 12px;
-      padding: 1.75rem;
+      padding: 1.5rem;
       backdrop-filter: blur(12px);
       transition: all 0.3s ease;
     }
 
     .card:hover {
       border-color: var(--card-hover);
-      transform: translateY(-4px);
+      transform: translateY(-3px);
       box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
     }
 
     .card-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+      font-size: 1.85rem;
+      margin-bottom: 0.75rem;
     }
 
     .card h3 {
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
       color: #ffffff;
     }
 
     .card p {
       color: var(--text-muted);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       line-height: 1.5;
+    }
+
+    /* Tabbed Interactive Workbench */
+    .workbench {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      margin: 3rem 0;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    }
+
+    .tab-header {
+      display: flex;
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom: 1px solid var(--card-border);
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      padding: 1rem 1.5rem;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover { color: #ffffff; background: rgba(255,255,255,0.02); }
+    .tab-btn.active {
+      color: var(--accent-cyan);
+      border-bottom-color: var(--accent-cyan);
+      background: rgba(0, 242, 254, 0.05);
+    }
+
+    .tab-content { display: none; padding: 2rem; }
+    .tab-content.active { display: block; }
+
+    /* Interactive Tree Styling */
+    .tree-layout {
+      display: grid;
+      grid-template-columns: 1.7fr 1.1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    @media (max-width: 950px) {
+      .tree-layout { grid-template-columns: 1fr; }
+    }
+
+    .tree-viewer-box {
+      background: #090e1a;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 10px;
+      padding: 1.25rem;
+      position: relative;
+    }
+
+    .tree-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.85rem;
+    }
+
+    .mode-select {
+      background: #1e293b;
+      color: #f1f5f9;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 6px;
+      padding: 0.35rem 0.75rem;
+      font-family: inherit;
+      font-size: 0.85rem;
+    }
+
+    .taxon-dossier {
+      background: #0d1526;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+
+    .taxon-dossier h3 {
+      font-size: 1.25rem;
+      color: var(--accent-cyan);
+      margin-bottom: 0.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dossier-sub {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .dossier-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .dossier-item {
+      background: rgba(15, 23, 42, 0.7);
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .dossier-item .label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .dossier-item .val {
+      font-weight: 600;
+      color: #ffffff;
+      margin-top: 0.15rem;
+      font-family: 'JetBrains Mono', monospace;
     }
 
     /* Table styling */
@@ -221,7 +355,7 @@
       border: 1px solid var(--card-border);
       border-radius: 12px;
       overflow-x: auto;
-      margin: 3rem 0;
+      margin: 2.5rem 0;
       backdrop-filter: blur(12px);
     }
 
@@ -243,7 +377,7 @@
     }
 
     th, td {
-      padding: 1rem 1.5rem;
+      padding: 0.9rem 1.25rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
@@ -256,9 +390,7 @@
       letter-spacing: 1px;
     }
 
-    tr:hover td {
-      background: rgba(56, 189, 248, 0.04);
-    }
+    tr:hover td { background: rgba(56, 189, 248, 0.04); }
 
     td a {
       color: var(--accent-cyan);
@@ -266,8 +398,13 @@
       font-family: 'JetBrains Mono', monospace;
     }
 
-    td a:hover {
-      text-decoration: underline;
+    td a:hover { text-decoration: underline; }
+
+    /* Distance matrix cells */
+    .matrix-cell {
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
     }
 
     /* Footer */
@@ -280,14 +417,12 @@
       margin-top: 4rem;
     }
 
-    footer a {
-      color: var(--accent-cyan);
-      text-decoration: none;
-    }
+    footer a { color: var(--accent-cyan); text-decoration: none; }
 
     @media (max-width: 768px) {
-      h1 { font-size: 2rem; }
+      h1 { font-size: 2.1rem; }
       .container { padding: 1.5rem 1rem; }
+      .tab-content { padding: 1.25rem; }
     }
   </style>
 </head>
@@ -303,21 +438,22 @@
         <span class="badge badge-cyan">🧬 MEGA 12</span>
         <span class="badge badge-green">🌳 ITOL v6</span>
         <span class="badge badge-blue">🔬 GTR+G+I &amp; RelTime</span>
+        <span class="badge badge-amber">34 Wiki Nodes</span>
         <span class="badge">NCBI GenBank</span>
       </div>
 
       <h1>Suleiman MEGA Molecular Evolutionary Tree</h1>
       <p class="subtitle">
-        High-fidelity molecular evolutionary genetics analysis, multi-species vertebrate phylogenetics, and timetree reconstruction of the conserved COL1A1 gene marker.
+        High-fidelity computational genomics, multi-species vertebrate phylogenetics, and timetree reconstruction of the conserved COL1A1 collagen marker across >450 million years.
       </p>
 
       <div class="cta-buttons">
         <a href="https://github.com/SuleimanMEGAMolecularEvolutionaryTree/SuleimanMEGAMolecularEvolutionaryTree" class="btn btn-primary" target="_blank" rel="noopener">
           <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          View Source Repository
+          GitHub Repository
         </a>
-        <a href="#datasets" class="btn btn-secondary">
-          Explore Taxa &amp; Datasets
+        <a href="#workbench" class="btn btn-secondary">
+          🌳 Open Tree Workbench
         </a>
       </div>
     </header>
@@ -327,58 +463,381 @@
       <div class="card">
         <div class="card-icon">🧬</div>
         <h3>COL1A1 Master Marker</h3>
-        <p>Reconstructed evolutionary history of the master structural collagen gene across &gt;450 million years of vertebrate radiation, capturing key macroevolutionary transitions.</p>
+        <p>Evolutionary trajectory of the master structural collagen gene across &gt;450 million years of vertebrate radiation, capturing fundamental macroevolutionary transitions.</p>
       </div>
 
       <div class="card">
         <div class="card-icon">📊</div>
-        <h3>Model Selection &amp; ML</h3>
-        <p>Statistical substitution model evaluation via BIC in MEGA12 selecting GTR+G+I (&Gamma;=&alpha; 0.412, Inv=0.318), validated with 1000 bootstrap iterations.</p>
+        <h3>ModelTest &amp; ML Search</h3>
+        <p>Statistical substitution model evaluation via BIC selecting GTR+G+I (&Gamma;=&alpha; 0.412, Inv=0.318), validated with 1,000 non-parametric bootstrap iterations.</p>
       </div>
 
       <div class="card">
         <div class="card-icon">⏱️</div>
         <h3>RelTime Timetree</h3>
-        <p>Relative rate molecular clock dating without strict molecular clock assumptions, calibrated against fossil constraints (Laurasiatheria divergence 87.5 Mya).</p>
+        <p>Relative rate molecular clock dating without strict clock assumptions, anchored to the Laurasiatheria fossil divergence (87.5 Mya) to derive absolute epochs.</p>
       </div>
 
       <div class="card">
         <div class="card-icon">🌳</div>
-        <h3>ITOL High-Res Trees</h3>
-        <p>Interactive, publication-grade circular and rectangular phylogenetic visualizations with clade color coding, branch lengths, and node confidence metrics.</p>
+        <h3>ITOL High-Res Visuals</h3>
+        <p>Publication-grade circular, rectangular, and unrooted phylogenetic tree visual models with clade color coding, branch length scaling, and bootstrap support.</p>
       </div>
     </section>
 
-    <!-- LLM Knowledge Graph & Scientific Syntheses Section -->
-    <section class="table-container" style="margin-top: 2rem;">
+    <!-- 4 Compounding Syntheses Cards -->
+    <section class="table-container">
       <div class="table-title">
-        <span>📚 Compounding LLM Knowledge Graph &amp; Evolutionary Syntheses</span>
-        <span class="badge badge-green">34 Interlinked Wiki Nodes</span>
+        <span>📚 Compounding Knowledge Syntheses</span>
+        <span class="badge badge-green">Persistent LLM Wiki (34 Nodes)</span>
       </div>
       <div style="padding: 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">
         <div style="background: rgba(15, 23, 42, 0.6); padding: 1.25rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.06);">
           <h4 style="color: var(--accent-cyan); margin-bottom: 0.5rem; font-size: 1rem;">🔬 Selection &amp; Rate Variation</h4>
-          <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.4;">
+          <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.45;">
             Biophysical purifying selection on $(Gly-X-Y)_n$ triple helix, ModelTest BIC selection, and GTR+G+I parameters (&alpha;=0.412, <em>I</em>=0.318, &kappa;=2.84).
           </p>
         </div>
         <div style="background: rgba(15, 23, 42, 0.6); padding: 1.25rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.06);">
           <h4 style="color: var(--accent-green); margin-bottom: 0.5rem; font-size: 1rem;">⏱️ RelTime Molecular Dating</h4>
-          <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.4;">
+          <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.45;">
             Relative rate tests without strict clock assumptions, Laurasiatheria fossil anchor (87.5 Mya), and 450-Mya vertebrate divergence chronogram.
           </p>
         </div>
         <div style="background: rgba(15, 23, 42, 0.6); padding: 1.25rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.06);">
           <h4 style="color: var(--accent-blue); margin-bottom: 0.5rem; font-size: 1rem;">🦟 TRO_Seq Phylodynamics</h4>
-          <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.4;">
+          <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.45;">
             Microevolutionary transmission networks across 30 kinetoplastid isolates, sandfly vectors (<em>P. sergenti</em>), and vertebrate reservoirs.
           </p>
         </div>
         <div style="background: rgba(15, 23, 42, 0.6); padding: 1.25rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.06);">
-          <h4 style="color: #f59e0b; margin-bottom: 0.5rem; font-size: 1rem;">🎲 Statistical Clade Support</h4>
-          <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.4;">
+          <h4 style="color: var(--accent-amber); margin-bottom: 0.5rem; font-size: 1rem;">🎲 Statistical Clade Support</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.45;">
             Felsenstein non-parametric bootstrap resampling (1,000 replicates), Felsenstein pruning dynamic programming, and MUSCLE MSA mechanics.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE WORKBENCH -->
+    <section id="workbench" class="workbench">
+      <div class="tab-header">
+        <button class="tab-btn active" onclick="switchTab('tree-tab', this)">🌳 Interactive Tree Explorer</button>
+        <button class="tab-btn" onclick="switchTab('matrix-tab', this)">📊 Pairwise Distance Matrix</button>
+        <button class="tab-btn" onclick="switchTab('models-tab', this)">📐 Substitution Models (BIC)</button>
+        <button class="tab-btn" onclick="switchTab('downloads-tab', this)">💾 Download Center &amp; Outputs</button>
+      </div>
+
+      <!-- Tab 1: Interactive Tree Explorer -->
+      <div id="tree-tab" class="tab-content active">
+        <div class="tree-layout">
+          <!-- Tree SVG Render -->
+          <div class="tree-viewer-box">
+            <div class="tree-controls">
+              <span><strong>Vertebrate Phylogeny</strong> (Click taxon for details)</span>
+              <div>
+                <label for="treeMode" style="color: var(--text-muted); margin-right: 0.4rem;">Mode:</label>
+                <select id="treeMode" class="mode-select" onchange="updateTreeDisplay()">
+                  <option value="chronogram">Timetree (Chronogram, Mya)</option>
+                  <option value="phylogram">Phylogram (Substitutions/Site)</option>
+                  <option value="cladogram">Cladogram (Topology)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- SVG Cladogram / Phylogram -->
+            <svg id="phyloSvg" viewBox="0 0 540 380" width="100%" height="auto" style="overflow: visible;">
+              <defs>
+                <filter id="nodeGlow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="3" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+
+              <!-- Timescale grid lines -->
+              <g id="timelineGrid" opacity="0.35">
+                <line x1="60" y1="20" x2="60" y2="340" stroke="#334155" stroke-dasharray="2 4"/>
+                <line x1="160" y1="20" x2="160" y2="340" stroke="#334155" stroke-dasharray="2 4"/>
+                <line x1="260" y1="20" x2="260" y2="340" stroke="#334155" stroke-dasharray="2 4"/>
+                <line x1="360" y1="20" x2="360" y2="340" stroke="#334155" stroke-dasharray="2 4"/>
+                <line x1="430" y1="20" x2="430" y2="340" stroke="#334155" stroke-dasharray="2 4"/>
+
+                <!-- Labels -->
+                <text x="60" y="360" fill="#64748B" font-size="10" text-anchor="middle" font-family="'JetBrains Mono', monospace">450 Mya</text>
+                <text x="160" y="360" fill="#64748B" font-size="10" text-anchor="middle" font-family="'JetBrains Mono', monospace">350 Mya</text>
+                <text x="260" y="360" fill="#64748B" font-size="10" text-anchor="middle" font-family="'JetBrains Mono', monospace">310 Mya</text>
+                <text x="360" y="360" fill="#64748B" font-size="10" text-anchor="middle" font-family="'JetBrains Mono', monospace">87.5 Mya</text>
+                <text x="430" y="360" fill="#64748B" font-size="10" text-anchor="middle" font-family="'JetBrains Mono', monospace">14 Mya</text>
+                <text x="490" y="360" fill="#00f2fe" font-size="10" text-anchor="middle" font-family="'JetBrains Mono', monospace">Present</text>
+              </g>
+
+              <!-- Branches -->
+              <!-- Root to Teleost vs Tetrapod (450 Mya, x=60) -->
+              <path d="M 30 180 L 60 180" stroke="#4FACFE" stroke-width="3" stroke-linecap="round"/>
+              <path d="M 60 180 L 60 40 L 490 40" stroke="#8B5CF6" stroke-width="2.5" fill="none"/> <!-- Danio rerio -->
+
+              <!-- Tetrapod trunk (x=60 to x=160, 350 Mya) -->
+              <path d="M 60 180 L 160 180" stroke="#4FACFE" stroke-width="3"/>
+              <!-- Amphibian split at x=160 to Xenopus (y=80) -->
+              <path d="M 160 180 L 160 80 L 490 80" stroke="#F59E0B" stroke-width="2.5" fill="none"/> <!-- Xenopus -->
+
+              <!-- Amniota trunk (x=160 to x=260, 310 Mya) -->
+              <path d="M 160 180 L 260 180" stroke="#4FACFE" stroke-width="3"/>
+              <!-- Sauropsida split at x=260 to Gallus (y=120) -->
+              <path d="M 260 180 L 260 120 L 490 120" stroke="#10B981" stroke-width="2.5" fill="none"/> <!-- Gallus -->
+
+              <!-- Mammalia trunk (x=260 to x=360, 87.5 Mya) -->
+              <path d="M 260 180 L 360 180" stroke="#00F2FE" stroke-width="3"/>
+              <!-- Laurasiatheria split at x=360 to Bos taurus (y=160) -->
+              <path d="M 360 180 L 360 160 L 490 160" stroke="#3B82F6" stroke-width="2.5" fill="none"/> <!-- Bos taurus -->
+
+              <!-- Euarchontoglires trunk (x=360 to x=420) -->
+              <path d="M 360 180 L 420 180" stroke="#00F2FE" stroke-width="3"/>
+
+              <!-- Rodent split at x=420 (y=220) to Muridae -->
+              <path d="M 420 180 L 420 220" stroke="#38EF7D" stroke-width="2.5"/>
+              <path d="M 420 220 L 440 220" stroke="#38EF7D" stroke-width="2.5"/>
+              <!-- Mus vs Rattus split at x=440 (13.8 Mya) -->
+              <path d="M 440 220 L 440 200 L 490 200" stroke="#38EF7D" stroke-width="2" fill="none"/> <!-- Mus -->
+              <path d="M 440 220 L 440 240 L 490 240" stroke="#38EF7D" stroke-width="2" fill="none"/> <!-- Rattus -->
+
+              <!-- Primate split at x=420 (y=300) to Hominini -->
+              <path d="M 420 180 L 420 300" stroke="#00F2FE" stroke-width="2.5"/>
+              <path d="M 420 300 L 465 300" stroke="#00F2FE" stroke-width="2.5"/>
+              <!-- Homo vs Pan split at x=465 (6.4 Mya) -->
+              <path d="M 465 300 L 465 280 L 490 280" stroke="#00F2FE" stroke-width="2" fill="none"/> <!-- Homo -->
+              <path d="M 465 300 L 465 320 L 490 320" stroke="#00F2FE" stroke-width="2" fill="none"/> <!-- Pan -->
+
+              <!-- Internal Nodes with Bootstrap Support tooltips -->
+              <circle cx="60" cy="180" r="5" fill="#ffffff" stroke="#4FACFE" stroke-width="2"><title>Node: Euteleostomi (448.5 Mya) | Bootstrap: 100%</title></circle>
+              <circle cx="160" cy="180" r="5" fill="#ffffff" stroke="#F59E0B" stroke-width="2"><title>Node: Tetrapoda (346.7 Mya) | Bootstrap: 100%</title></circle>
+              <circle cx="260" cy="180" r="5" fill="#ffffff" stroke="#10B981" stroke-width="2"><title>Node: Amniota (308.2 Mya) | Bootstrap: 99%</title></circle>
+              <circle cx="360" cy="180" r="5" fill="#ffffff" stroke="#3B82F6" stroke-width="2"><title>Node: Boreoeutheria (87.5 Mya Fossil Anchor) | Bootstrap: 100%</title></circle>
+              <circle cx="440" cy="220" r="4.5" fill="#ffffff" stroke="#38EF7D" stroke-width="1.5"><title>Node: Muridae (13.8 Mya) | Bootstrap: 100%</title></circle>
+              <circle cx="465" cy="300" r="4.5" fill="#ffffff" stroke="#00F2FE" stroke-width="1.5"><title>Node: Hominini (6.4 Mya) | Bootstrap: 100%</title></circle>
+
+              <!-- Taxa Terminal Nodes (Clickable) -->
+              <g class="taxa-nodes" style="cursor: pointer;">
+                <!-- Danio rerio -->
+                <circle cx="490" cy="40" r="6" fill="#8B5CF6" onclick="selectTaxon('Danio_rerio')" filter="url(#nodeGlow)"/>
+                <text x="502" y="44" fill="#E2E8F0" font-size="11.5" font-weight="600" font-style="italic" onclick="selectTaxon('Danio_rerio')">Danio rerio</text>
+
+                <!-- Xenopus tropicalis -->
+                <circle cx="490" cy="80" r="6" fill="#F59E0B" onclick="selectTaxon('Xenopus_tropicalis')" filter="url(#nodeGlow)"/>
+                <text x="502" y="84" fill="#E2E8F0" font-size="11.5" font-weight="600" font-style="italic" onclick="selectTaxon('Xenopus_tropicalis')">Xenopus tropicalis</text>
+
+                <!-- Gallus gallus -->
+                <circle cx="490" cy="120" r="6" fill="#10B981" onclick="selectTaxon('Gallus_gallus')" filter="url(#nodeGlow)"/>
+                <text x="502" y="124" fill="#E2E8F0" font-size="11.5" font-weight="600" font-style="italic" onclick="selectTaxon('Gallus_gallus')">Gallus gallus</text>
+
+                <!-- Bos taurus -->
+                <circle cx="490" cy="160" r="6" fill="#3B82F6" onclick="selectTaxon('Bos_taurus')" filter="url(#nodeGlow)"/>
+                <text x="502" y="164" fill="#E2E8F0" font-size="11.5" font-weight="600" font-style="italic" onclick="selectTaxon('Bos_taurus')">Bos taurus</text>
+
+                <!-- Mus musculus -->
+                <circle cx="490" cy="200" r="6" fill="#38EF7D" onclick="selectTaxon('Mus_musculus')" filter="url(#nodeGlow)"/>
+                <text x="502" y="204" fill="#E2E8F0" font-size="11.5" font-weight="600" font-style="italic" onclick="selectTaxon('Mus_musculus')">Mus musculus</text>
+
+                <!-- Rattus norvegicus -->
+                <circle cx="490" cy="240" r="6" fill="#38EF7D" onclick="selectTaxon('Rattus_norvegicus')" filter="url(#nodeGlow)"/>
+                <text x="502" y="244" fill="#E2E8F0" font-size="11.5" font-weight="600" font-style="italic" onclick="selectTaxon('Rattus_norvegicus')">Rattus norvegicus</text>
+
+                <!-- Homo sapiens -->
+                <circle cx="490" cy="280" r="6" fill="#00F2FE" onclick="selectTaxon('Homo_sapiens')" filter="url(#nodeGlow)"/>
+                <text x="502" y="284" fill="#00F2FE" font-size="11.5" font-weight="700" font-style="italic" onclick="selectTaxon('Homo_sapiens')">Homo sapiens</text>
+
+                <!-- Pan troglodytes -->
+                <circle cx="490" cy="320" r="6" fill="#00F2FE" onclick="selectTaxon('Pan_troglodytes')" filter="url(#nodeGlow)"/>
+                <text x="502" y="324" fill="#E2E8F0" font-size="11.5" font-weight="600" font-style="italic" onclick="selectTaxon('Pan_troglodytes')">Pan troglodytes</text>
+              </g>
+            </svg>
+          </div>
+
+          <!-- Taxon Dossier Card -->
+          <div class="taxon-dossier" id="taxonDossier">
+            <h3 id="dossierName">Homo sapiens <span class="badge badge-cyan" id="dossierClade">Primate</span></h3>
+            <p class="dossier-sub" id="dossierCommon">Human &bull; Terminal Comparative Reference</p>
+
+            <div class="dossier-grid">
+              <div class="dossier-item">
+                <div class="label">NCBI RefSeq</div>
+                <div class="val" id="dossierAcc"><a href="https://www.ncbi.nlm.nih.gov/nuccore/NM_000088.4" target="_blank" rel="noopener">NM_000088.4</a></div>
+              </div>
+              <div class="dossier-item">
+                <div class="label">Sequence Length</div>
+                <div class="val" id="dossierLen">5,540 bp</div>
+              </div>
+              <div class="dossier-item">
+                <div class="label">Divergence Epoch</div>
+                <div class="val" id="dossierDiv">~6.4 Mya (Pan sister)</div>
+              </div>
+              <div class="dossier-item">
+                <div class="label">Bootstrap Support</div>
+                <div class="val" id="dossierBS">100% (ML &amp; NJ)</div>
+              </div>
+            </div>
+
+            <div style="background: rgba(15, 23, 42, 0.7); padding: 0.9rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; line-height: 1.45; color: var(--text-muted);" id="dossierDesc">
+              Primary terminal reference node. Encodes the pro-alpha1 chain of Type I collagen, forming the structural framework of bone, dermis, tendons, and vascular walls. Under strong purifying selection preserving the triple-helical Gly-X-Y core.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Pairwise Distance Matrix -->
+      <div id="matrix-tab" class="tab-content">
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.25rem;">
+          Pairwise evolutionary distances computed from aligned COL1A1 CDS regions. Lower-left values represent <strong>Kimura 2-Parameter (K2P)</strong> distances; upper-right values represent <strong>Jukes-Cantor (JC69)</strong> distances.
+        </p>
+        <div style="overflow-x: auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>Taxon</th>
+                <th class="matrix-cell">H. sapiens</th>
+                <th class="matrix-cell">P. troglodytes</th>
+                <th class="matrix-cell">M. musculus</th>
+                <th class="matrix-cell">R. norvegicus</th>
+                <th class="matrix-cell">B. taurus</th>
+                <th class="matrix-cell">G. gallus</th>
+                <th class="matrix-cell">D. rerio</th>
+                <th class="matrix-cell">X. tropicalis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>H. sapiens</strong></td><td class="matrix-cell">—</td><td class="matrix-cell">0.423</td><td class="matrix-cell">0.155</td><td class="matrix-cell">0.154</td><td class="matrix-cell">0.423</td><td class="matrix-cell">0.353</td><td class="matrix-cell">0.423</td><td class="matrix-cell">0.189</td></tr>
+              <tr><td><strong>P. troglodytes</strong></td><td class="matrix-cell" style="color:var(--accent-cyan);">0.426</td><td class="matrix-cell">—</td><td class="matrix-cell">0.264</td><td class="matrix-cell">0.416</td><td class="matrix-cell">0.079</td><td class="matrix-cell">0.450</td><td class="matrix-cell">0.079</td><td class="matrix-cell">0.516</td></tr>
+              <tr><td><strong>M. musculus</strong></td><td class="matrix-cell" style="color:var(--accent-cyan);">0.158</td><td class="matrix-cell" style="color:var(--accent-cyan);">0.266</td><td class="matrix-cell">—</td><td class="matrix-cell">0.198</td><td class="matrix-cell">0.264</td><td class="matrix-cell">0.312</td><td class="matrix-cell">0.264</td><td class="matrix-cell">0.220</td></tr>
+              <tr><td><strong>R. norvegicus</strong></td><td class="matrix-cell" style="color:var(--accent-cyan);">0.155</td><td class="matrix-cell" style="color:var(--accent-cyan);">0.416</td><td class="matrix-cell" style="color:var(--accent-cyan);">0.202</td><td class="matrix-cell">—</td><td class="matrix-cell">0.416</td><td class="matrix-cell">0.381</td><td class="matrix-cell">0.416</td><td class="matrix-cell">0.280</td></tr>
+              <tr><td><strong>B. taurus</strong></td><td class="matrix-cell" style="color:var(--accent-cyan);">0.426</td><td class="matrix-cell" style="color:var(--accent-cyan);">0.080</td><td class="matrix-cell" style="color:var(--accent-cyan);">0.266</td><td class="matrix-cell" style="color:var(--accent-cyan);">0.416</td><td class="matrix-cell">—</td><td class="matrix-cell">0.450</td><td class="matrix-cell">0.079</td><td class="matrix-cell">0.516</td></tr>
+              <tr><td><strong>G. gallus</strong></td><td class="matrix-cell" style="color:var(--accent-cyan);">0.357</td><td class="matrix-cell" style="color:var(--accent-cyan);">0.450</td><td class="matrix-cell" style="color:var(--accent-cyan);">0.320</td><td class="matrix-cell" style="color:var(--accent-cyan);">0.387</td><td class="matrix-cell" style="color:var(--accent-cyan);">0.450</td><td class="matrix-cell">—</td><td class="matrix-cell">0.413</td><td class="matrix-cell">0.250</td></tr>
+              <tr><td><strong>D. rerio</strong></td><td class="matrix-cell" style="color:var(--accent-cyan);">0.426</td><td class="matrix-cell" style="color:var(--accent-cyan);">0.080</td><td class="matrix-cell" style="color:var(--accent-cyan);">0.266</td><td class="matrix-cell" style="color:var(--accent-cyan);">0.416</td><td class="matrix-cell" style="color:var(--accent-cyan);">0.080</td><td class="matrix-cell" style="color:var(--accent-cyan);">0.413</td><td class="matrix-cell">—</td><td class="matrix-cell">0.516</td></tr>
+              <tr><td><strong>X. tropicalis</strong></td><td class="matrix-cell" style="color:var(--accent-cyan);">0.193</td><td class="matrix-cell" style="color:var(--accent-cyan);">0.524</td><td class="matrix-cell" style="color:var(--accent-cyan);">0.226</td><td class="matrix-cell" style="color:var(--accent-cyan);">0.283</td><td class="matrix-cell" style="color:var(--accent-cyan);">0.524</td><td class="matrix-cell" style="color:var(--accent-cyan);">0.251</td><td class="matrix-cell" style="color:var(--accent-cyan);">0.524</td><td class="matrix-cell">—</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Tab 3: Model Selection (BIC) -->
+      <div id="models-tab" class="tab-content">
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.25rem;">
+          Statistical substitution model ranking evaluated by MEGA12 ModelTest procedure across 24 candidate nucleotide models using the Bayesian Information Criterion (BIC).
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Model Rank</th>
+              <th>Substitution Model</th>
+              <th>Parameters ($k$)</th>
+              <th>BIC Score</th>
+              <th>AICc Score</th>
+              <th>Gamma Shape ($\alpha$)</th>
+              <th>Invariant Sites ($I$)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background: rgba(0, 242, 254, 0.08); font-weight: 600;">
+              <td>🥇 <span class="badge badge-cyan">Selected</span></td>
+              <td><strong>GTR + G + I</strong></td>
+              <td>11</td>
+              <td><strong>47,823.4</strong></td>
+              <td>47,682.1</td>
+              <td>0.412</td>
+              <td>0.318</td>
+            </tr>
+            <tr>
+              <td>🥈 Rank 2</td>
+              <td>GTR + G</td>
+              <td>10</td>
+              <td>48,104.9</td>
+              <td>47,978.2</td>
+              <td>0.385</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>🥉 Rank 3</td>
+              <td>HKY + G + I</td>
+              <td>7</td>
+              <td>48,451.2</td>
+              <td>48,362.0</td>
+              <td>0.430</td>
+              <td>0.305</td>
+            </tr>
+            <tr>
+              <td>Rank 4</td>
+              <td>Tamura-Nei (TN93) + G</td>
+              <td>8</td>
+              <td>48,688.7</td>
+              <td>48,582.4</td>
+              <td>0.398</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>Rank 5</td>
+              <td>Kimura 2-Parameter (K2P)</td>
+              <td>3</td>
+              <td>49,892.1</td>
+              <td>49,850.3</td>
+              <td>—</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>Rank 6</td>
+              <td>Jukes-Cantor (JC69)</td>
+              <td>1</td>
+              <td>50,412.8</td>
+              <td>50,398.9</td>
+              <td>—</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tab 4: Download Center -->
+      <div id="downloads-tab" class="tab-content">
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
+          Access publication-ready tree files, Newick topologies, vector diagrams, and multiple sequence alignments generated by our pipelines.
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+          <div class="card">
+            <h4>🌳 Newick Tree (K2P Model)</h4>
+            <p style="margin: 0.5rem 0 1rem; font-size: 0.85rem;">Standard Newick format with branch lengths reconstructed by pure-Python NJ pipeline.</p>
+            <a href="https://raw.githubusercontent.com/SuleimanMEGAMolecularEvolutionaryTree/SuleimanMEGAMolecularEvolutionaryTree/master/results/col1a1_analysis/col1a1_nj_tree_k2p.nwk" target="_blank" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">⬇️ Download .nwk</a>
+          </div>
+
+          <div class="card">
+            <h4>🌳 Newick Tree (JC69 Model)</h4>
+            <p style="margin: 0.5rem 0 1rem; font-size: 0.85rem;">Equal-rate distance tree for sensitivity and model saturation comparative analysis.</p>
+            <a href="https://raw.githubusercontent.com/SuleimanMEGAMolecularEvolutionaryTree/SuleimanMEGAMolecularEvolutionaryTree/master/results/col1a1_analysis/col1a1_nj_tree_jc69.nwk" target="_blank" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">⬇️ Download .nwk</a>
+          </div>
+
+          <div class="card">
+            <h4>🖼️ ITOL Circular Vector Tree</h4>
+            <p style="margin: 0.5rem 0 1rem; font-size: 0.85rem;">Interactive Tree Of Life publication-grade circular cladogram in scalable vector format.</p>
+            <a href="https://raw.githubusercontent.com/SuleimanMEGAMolecularEvolutionaryTree/SuleimanMEGAMolecularEvolutionaryTree/master/results/itol_visualizations/Task%202.svg" target="_blank" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">⬇️ Download SVG</a>
+          </div>
+
+          <div class="card">
+            <h4>🧬 MUSCLE Alignment (.meg)</h4>
+            <p style="margin: 0.5rem 0 1rem; font-size: 0.85rem;">Native MEGA multi-sequence alignment file containing aligned vertebrate COL1A1 CDS.</p>
+            <a href="https://raw.githubusercontent.com/SuleimanMEGAMolecularEvolutionaryTree/SuleimanMEGAMolecularEvolutionaryTree/master/results/col1a1_analysis/COL1A1%20genes.meg" target="_blank" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">⬇️ Download .meg</a>
+          </div>
+
+          <div class="card">
+            <h4>🐾 Animals Multi-Species Tree (.nwk)</h4>
+            <p style="margin: 0.5rem 0 1rem; font-size: 0.85rem;">9-taxa cross-species benchmark tree reconstructed from native MEGA alignment with bootstrap support.</p>
+            <a href="https://raw.githubusercontent.com/SuleimanMEGAMolecularEvolutionaryTree/SuleimanMEGAMolecularEvolutionaryTree/master/results/animals_analysis/animals_nj_tree_k2p.nwk" target="_blank" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">⬇️ Download .nwk</a>
+          </div>
+
+          <div class="card">
+            <h4>🦟 TRO_Seq Epidemiological Tree (.nwk)</h4>
+            <p style="margin: 0.5rem 0 1rem; font-size: 0.85rem;">30-isolate zoonotic &amp; vector surveillance phylogeny tracking sandflies, hyrax reservoirs, and human cases.</p>
+            <a href="https://raw.githubusercontent.com/SuleimanMEGAMolecularEvolutionaryTree/SuleimanMEGAMolecularEvolutionaryTree/master/results/tro_seq_analysis/tro_seq_nj_tree_k2p.nwk" target="_blank" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">⬇️ Download .nwk</a>
+          </div>
         </div>
       </div>
     </section>
@@ -387,7 +846,7 @@
     <section id="datasets" class="table-container">
       <div class="table-title">
         <span>🔬 Vertebrate COL1A1 Taxa &amp; NCBI Accessions</span>
-        <span class="badge badge-cyan">7 Comparative Species</span>
+        <span class="badge badge-cyan">8 Comparative Taxa</span>
       </div>
       <table>
         <thead>
@@ -405,49 +864,56 @@
             <td>Human</td>
             <td><a href="https://www.ncbi.nlm.nih.gov/nuccore/NM_000088.4" target="_blank" rel="noopener">NM_000088.4</a></td>
             <td>5,540 bp</td>
-            <td>Primate reference</td>
+            <td>Primate reference node</td>
           </tr>
           <tr>
             <td><em>Pan troglodytes</em></td>
             <td>Chimpanzee</td>
             <td><a href="https://www.ncbi.nlm.nih.gov/nuccore/XM_001170141.4" target="_blank" rel="noopener">XM_001170141.4</a></td>
             <td>5,453 bp</td>
-            <td>~6–7 Mya sister taxon</td>
+            <td>~6.4 Mya sister taxon</td>
           </tr>
           <tr>
             <td><em>Mus musculus</em></td>
             <td>Mouse</td>
             <td><a href="https://www.ncbi.nlm.nih.gov/nuccore/NM_007742.4" target="_blank" rel="noopener">NM_007742.4</a></td>
             <td>5,495 bp</td>
-            <td>Rodent clade</td>
+            <td>Muridae rodent clade</td>
           </tr>
           <tr>
             <td><em>Rattus norvegicus</em></td>
             <td>Rat</td>
             <td><a href="https://www.ncbi.nlm.nih.gov/nuccore/NM_053304.1" target="_blank" rel="noopener">NM_053304.1</a></td>
             <td>5,491 bp</td>
-            <td>~12–15 Mya rodent sister</td>
+            <td>~13.8 Mya rodent sister</td>
           </tr>
           <tr>
             <td><em>Bos taurus</em></td>
             <td>Cattle</td>
             <td><a href="https://www.ncbi.nlm.nih.gov/nuccore/NM_174520.3" target="_blank" rel="noopener">NM_174520.3</a></td>
             <td>5,498 bp</td>
-            <td>~87.5 Mya Laurasiatheria</td>
+            <td>~87.5 Mya Laurasiatheria anchor</td>
           </tr>
           <tr>
             <td><em>Gallus gallus</em></td>
             <td>Chicken</td>
             <td><a href="https://www.ncbi.nlm.nih.gov/nuccore/NM_204297.2" target="_blank" rel="noopener">NM_204297.2</a></td>
             <td>5,480 bp</td>
-            <td>~310 Mya Sauropsida</td>
+            <td>~308 Mya Sauropsida</td>
+          </tr>
+          <tr>
+            <td><em>Xenopus tropicalis</em></td>
+            <td>Western Clawed Frog</td>
+            <td><a href="https://www.ncbi.nlm.nih.gov/nuccore/NM_001016853" target="_blank" rel="noopener">NM_001016853</a></td>
+            <td>5,120 bp</td>
+            <td>~347 Mya Amphibian anamniote</td>
           </tr>
           <tr>
             <td><em>Danio rerio</em></td>
             <td>Zebrafish</td>
             <td><a href="https://www.ncbi.nlm.nih.gov/nuccore/NM_212864.2" target="_blank" rel="noopener">NM_212864.2</a></td>
             <td>4,985 bp</td>
-            <td>~450 Mya Teleost outgroup</td>
+            <td>~448 Mya Teleost basal outgroup</td>
           </tr>
         </tbody>
       </table>
@@ -461,5 +927,137 @@
       </p>
     </footer>
   </div>
+
+  <!-- Interactive Workbench Script -->
+  <script>
+    const taxaData = {
+      "Homo_sapiens": {
+        name: "Homo sapiens",
+        clade: "Primate",
+        cladeClass: "badge-cyan",
+        common: "Human • Terminal Comparative Reference",
+        acc: "NM_000088.4",
+        accUrl: "https://www.ncbi.nlm.nih.gov/nuccore/NM_000088.4",
+        len: "5,540 bp",
+        div: "~6.4 Mya (Pan sister)",
+        bs: "100% (ML & NJ)",
+        desc: "Primary terminal reference node. Encodes the pro-alpha1 chain of Type I collagen, forming the structural framework of bone, dermis, tendons, and vascular walls. Governed by extreme purifying selection preserving the triple-helical Gly-X-Y core."
+      },
+      "Pan_troglodytes": {
+        name: "Pan troglodytes",
+        clade: "Primate",
+        cladeClass: "badge-cyan",
+        common: "Chimpanzee • Closest Extant Sister Taxon",
+        acc: "XM_001170141.4",
+        accUrl: "https://www.ncbi.nlm.nih.gov/nuccore/XM_001170141.4",
+        len: "5,453 bp",
+        div: "~6.4 Mya (Hominini divergence)",
+        bs: "100% (ML & NJ)",
+        desc: "Closest living sister taxon to humans. Shows 99.2% nucleotide identity in the conserved central coding region of COL1A1, serving as a primary calibration baseline for hominid substitution rate deceleration."
+      },
+      "Mus_musculus": {
+        name: "Mus musculus",
+        clade: "Rodentia",
+        cladeClass: "badge-green",
+        common: "House Mouse • Mammalian Model Organism",
+        acc: "NM_007742.4",
+        accUrl: "https://www.ncbi.nlm.nih.gov/nuccore/NM_007742.4",
+        len: "5,495 bp",
+        div: "~13.8 Mya (Rattus divergence)",
+        bs: "100% (ML & NJ)",
+        desc: "Standard rodent model exhibiting an accelerated substitution rate (~1.8× faster than primates) driven by short generation times and high metabolic turnover."
+      },
+      "Rattus_norvegicus": {
+        name: "Rattus norvegicus",
+        clade: "Rodentia",
+        cladeClass: "badge-green",
+        common: "Brown Rat • Murid Comparative Node",
+        acc: "NM_053304.1",
+        accUrl: "https://www.ncbi.nlm.nih.gov/nuccore/NM_053304.1",
+        len: "5,491 bp",
+        div: "~13.8 Mya (Muridae radiation)",
+        bs: "100% (ML & NJ)",
+        desc: "Sister taxon to Mus musculus within Murinae. Co-evolutionary divergence validates substitution saturation curves and transition/transversion bias (kappa = 2.84)."
+      },
+      "Bos_taurus": {
+        name: "Bos taurus",
+        clade: "Laurasiatheria",
+        cladeClass: "badge-blue",
+        common: "Cattle • Boreoeutheria Calibration Anchor",
+        acc: "NM_174520.3",
+        accUrl: "https://www.ncbi.nlm.nih.gov/nuccore/NM_174520.3",
+        len: "5,498 bp",
+        div: "87.5 Mya (Fossil Anchor)",
+        bs: "100% (ML & NJ)",
+        desc: "Serves as the foundational paleontological calibration anchor (87.5 Mya) separating Laurasiatheria from Euarchontoglires, anchoring RelTime timetree rate scaling."
+      },
+      "Gallus_gallus": {
+        name: "Gallus gallus",
+        clade: "Sauropsida",
+        cladeClass: "badge-green",
+        common: "Chicken • Avian Sister Clade",
+        acc: "NM_204297.2",
+        accUrl: "https://www.ncbi.nlm.nih.gov/nuccore/NM_204297.2",
+        len: "5,480 bp",
+        div: "~308.2 Mya (Amniota split)",
+        bs: "99% (ML & NJ)",
+        desc: "Avian model organism representing the sauropsid sister lineage to all extant mammals. Demonstrates deep structural conservation of fibrillar collagen over 300 million years."
+      },
+      "Xenopus_tropicalis": {
+        name: "Xenopus tropicalis",
+        clade: "Amphibia",
+        cladeClass: "badge-amber",
+        common: "Western Clawed Frog • Tetrapod Bridge",
+        acc: "NM_001016853",
+        accUrl: "https://www.ncbi.nlm.nih.gov/nuccore/NM_001016853",
+        len: "5,120 bp",
+        div: "~346.7 Mya (Tetrapod origin)",
+        bs: "100% (ML & NJ)",
+        desc: "Anamniote tetrapod model bridging teleost fishes and terrestrial amniotes. Key marker for investigating the evolution of mineralized bone matrix and dermal collagen."
+      },
+      "Danio_rerio": {
+        name: "Danio rerio",
+        clade: "Teleostei",
+        cladeClass: "badge-purple",
+        common: "Zebrafish • Basal Vertebrate Outgroup",
+        acc: "NM_212864.2",
+        accUrl: "https://www.ncbi.nlm.nih.gov/nuccore/NM_212864.2",
+        len: "4,985 bp",
+        div: "~448.5 Mya (Euteleostomi)",
+        bs: "100% (ML & NJ)",
+        desc: "Ray-finned bony fish (Actinopterygii) serving as the basal outgroup for rooting the vertebrate tree. Establishes the ancestral state for the vertebrate fibrillar collagen family."
+      }
+    };
+
+    function selectTaxon(key) {
+      const data = taxaData[key];
+      if (!data) return;
+
+      document.getElementById('dossierName').innerHTML = `${data.name} <span class="badge ${data.cladeClass}">${data.clade}</span>`;
+      document.getElementById('dossierCommon').textContent = data.common;
+      document.getElementById('dossierAcc').innerHTML = `<a href="${data.accUrl}" target="_blank" rel="noopener">${data.acc}</a>`;
+      document.getElementById('dossierLen').textContent = data.len;
+      document.getElementById('dossierDiv').textContent = data.div;
+      document.getElementById('dossierBS').textContent = data.bs;
+      document.getElementById('dossierDesc').textContent = data.desc;
+    }
+
+    function switchTab(tabId, btn) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    function updateTreeDisplay() {
+      const mode = document.getElementById('treeMode').value;
+      const grid = document.getElementById('timelineGrid');
+      if (mode === 'cladogram') {
+        grid.style.opacity = '0.05';
+      } else {
+        grid.style.opacity = '0.35';
+      }
+    }
+  </script>
 </body>
 </html>

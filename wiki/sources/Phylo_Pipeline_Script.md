@@ -1,60 +1,62 @@
 ---
-title: Pure-Python Phylogenetic Distance Pipeline (phylo_pipeline.py)
+title: Pure-Python Molecular Evolutionary Genetics Pipeline (phylo_pipeline.py)
 type: source
 category: script
-tags: [source, python, algorithms, jc69, k2p, neighbor-joining, pure-python, cli]
+tags: [source, python, algorithms, jc69, k2p, neighbor-joining, bootstrap, felsenstein, pure-python, cli]
 created: 2026-08-17
-updated: 2026-08-17
+updated: 2026-10-28
 raw_source: "scripts/phylo_pipeline.py"
 ---
 
-# Source: Pure-Python Phylogenetic Distance Pipeline
+# Source: Pure-Python Molecular Evolutionary Genetics Pipeline
 
 ## Summary
-[`scripts/phylo_pipeline.py`](file:///Users/macbookairm2/Documents/GitHub/MEGA-Software-Molecular-Evolutionary-Genetics-Analysis/scripts/phylo_pipeline.py) is a standalone Python implementation of core phylogenetic distance estimation and tree reconstruction algorithms authored by Suleyman Hajizadeh for a Cambridge MPhil portfolio. It implements mathematical definitions of [[Pairwise_Evolutionary_Distance|JC69 and K2P]] models and the [[Neighbor_Joining_Algorithm|Saitou–Nei Neighbor-Joining]] method from scratch using only standard scientific libraries (`numpy`, `matplotlib`, `biopython`), bypassing third-party phylogenetics packages or GUI suites like [[MEGA12]].
+[`scripts/phylo_pipeline.py`](file:///Users/macbookairm2/Documents/GitHub/SuleimanMEGAMolecularEvolutionaryTree/scripts/phylo_pipeline.py) is a comprehensive, standalone Python pipeline for evolutionary distance estimation, Neighbor-Joining tree construction, and Felsenstein non-parametric bootstrap resampling authored by Suleyman Hajizadeh for a Cambridge MPhil portfolio. It implements mathematical definitions of [[Pairwise_Evolutionary_Distance|JC69 and K2P]] models, Saitou & Nei (1987) [[Neighbor_Joining_Algorithm|Neighbor-Joining]], and Felsenstein (1985) [[Bootstrap_Resampling_and_Phylogenetic_Support|Bootstrap Resampling]] from first principles using only standard numerical libraries (`numpy`, `matplotlib`, `biopython`), completely bypassing GUI dependencies like [[MEGA12]].
 
-## Architecture & Pipeline Components
+## Architecture & Multi-Dataset Support
 
 ```
-1. Entrez Retrieval ──> 2. Pairwise Alignment ──> 3. Substitution Counting
-   (Bio.Entrez)            (PairwiseAligner)         (Purines/Pyrimidines: P, Q)
-                                                            │
-                                                            ▼
-6. Dual Output ◄────── 5. Matplotlib Tree & ◄───── 4. Distance Calculation
-   (PNG + Terminal)        Distance Heatmap          (JC69 / K2P -> NJ Q-Matrix)
+1. Multi-Format Ingest ──> 2. Pairwise/MSA Count ──> 3. Analytical Distance
+   (NCBI / .meg / .fas)       (Purines/Pyrimidines)     (JC69 / K2P Matrix)
+                                                             │
+                                                             ▼
+6. Dual Output ◄────── 5. Bootstrap Resampling ◄─── 4. Saitou-Nei NJ
+   (NWK + Dark Mode PNG)  (100 replicates, splits)      (Dynamic Q-Matrix)
 ```
 
-### 1. Sequence Retrieval (`fetch_sequences`)
-- Connects to NCBI Entrez via `Bio.Entrez.efetch` (with 0.4s rate-limiting pause).
-- Targets RefSeq accessions for 7 vertebrate model taxa across ~450 million years of divergence:
-  - *Homo sapiens* (`NM_000088`), *Pan troglodytes* (`XM_016944896`), *Mus musculus* (`NM_007742`), *Rattus norvegicus* (`NM_053304`), *Gallus gallus* (`NM_204775`), *Danio rerio* (`NM_001004631`), *Xenopus tropicalis* (`NM_001016853`).
+### Supported Datasets (`--dataset`)
+1. **`col1a1`**: 8 vertebrate comparative species across ~450 million years of evolutionary divergence (*Homo sapiens*, *Pan troglodytes*, *Mus musculus*, *Rattus norvegicus*, *Bos taurus*, *Gallus gallus*, *Danio rerio*, *Xenopus tropicalis*).
+2. **`animals`**: 9 animal and outgroup taxa aligned across 839 positions from native MEGA format (`data/raw/animal_alignments/animals.meg`).
+3. **`tro_seq`**: 30 zoonotic & vector epidemiological surveillance isolates (`data/raw/col1a1_sequences/TRO_Seq(30).fas`).
 
-### 2. Pairwise Sequence Alignment & Substitution Categorization
-- `align_pair()`: Global dynamic programming alignment via `Bio.Align.PairwiseAligner` (scores: Match $= +1$, Mismatch $= -1$, Gap open $= -2$, Gap extend $= -0.5$).
-- `compute_alignment_counts()`: Iterates aligned columns, filters gap positions, and partitions differences into:
-  - **Transitions ($P$)**: Purine $\leftrightarrow$ Purine ($A \leftrightarrow G$) or Pyrimidine $\leftrightarrow$ Pyrimidine ($C \leftrightarrow T$).
-  - **Transversions ($Q$)**: Purine $\leftrightarrow$ Pyrimidine ($A/G \leftrightarrow C/T$).
+### Core Computational Algorithms
 
-### 3. Evolutionary Distance Estimation
+#### 1. Distance Calculation
 - **JC69**: $d = -\frac{3}{4} \ln\left(1 - \frac{4}{3}p_{\text{total}}\right)$
 - **K2P**: $d = -\frac{1}{2} \ln(1 - 2P - Q) - \frac{1}{4} \ln(1 - 2Q)$
-- Returns `np.inf` if sequence divergence saturates beyond mathematical limits ($p \ge 0.75$ for JC69 or arguments $\le 0$).
 
-### 4. Saitou–Nei Neighbor-Joining (`neighbor_joining`)
-- Implements dynamic $Q$-matrix transformation for $n$ taxa:
+#### 2. Neighbor-Joining ($Q$-Matrix Optimization)
+- Iteratively evaluates:
   $$Q(i,j) = (n-2) D(i,j) - \sum_{k} D(i,k) - \sum_{k} D(j,k)$$
-- Identifies pair $(i, j)$ minimizing $Q(i, j)$ and computes individual branch lengths to new node $u$:
-  $$d(i, u) = \frac{D(i,j)}{2} + \frac{\sum_k D(i,k) - \sum_k D(j,k)}{2(n-2)}$$
-  $$d(j, u) = D(i,j) - d(i, u)$$
-- Dynamically reduces distance matrix and iterates until tree resolution.
+- Computes node branch lengths:
+  $$d(i, u) = \frac{D(i,j)}{2} + \frac{\sum_k D(i,k) - \sum_k D(j,k)}{2(n-2)}, \quad d(j, u) = D(i,j) - d(i, u)$$
 
-### 5. Verification Suite (`tests/test_phylo.py`)
-- Unit tests validating:
-  - Zero-difference identity ($d=0.0$).
-  - Expected analytical values for benchmark transition/transversion inputs.
-  - Asymptotic saturation checks (infinite limit returns `np.inf`).
-  - Correct classification of matches, transitions, transversions, and gap filtering.
+#### 3. Felsenstein (1985) Bootstrap Resampling (`bootstrap_neighbor_joining`)
+- Resamples alignment columns with replacement ($B = 100$ replicates).
+- Normalizes internal phylogenetic bipartitions into canonical unrooted splits:
+  $$\text{canonical\_split}(C, S) = \begin{cases} S \setminus C & \text{if } s_0 \in C \\ C & \text{otherwise} \end{cases}$$
+- Annotates bootstrap support frequencies directly into standard Newick trees and publication cladogram branches.
+
+### Verification Suite (`tests/test_phylo.py`)
+A comprehensive 11-test suite executed via `uv run pytest`:
+- Analytical distance precision ($d=0.0$, expected K2P/JC69 values).
+- Asymptotic saturation limits ($d \to \infty$ handling).
+- Match, transition, transversion, and gap classification.
+- Canonical split normalization invariance.
+- Embedded bootstrap support within Newick formatting.
+- Native `.meg` file parser extraction.
+- Non-parametric bootstrap percentage bounded strictly in $[0, 100]\%$.
 
 ## Related Wiki Graph Nodes
-- **Entities**: [[COL1A1]], [[MEGA12]], [[ITOL]], [[Homo_sapiens]]
-- **Concepts**: [[Neighbor_Joining_Algorithm]], [[Pairwise_Evolutionary_Distance]], [[Phylogenetic_Reconstruction]], [[Substitution_Models]]
+- **Entities**: [[COL1A1]], [[MEGA12]], [[ITOL]], [[Homo_sapiens]], [[Pan_troglodytes]], [[Danio_rerio]], [[Phlebotomus_sergenti]]
+- **Concepts**: [[Neighbor_Joining_Algorithm]], [[Pairwise_Evolutionary_Distance]], [[Bootstrap_Resampling_and_Phylogenetic_Support]], [[Phylogenetic_Reconstruction]], [[Substitution_Models]]

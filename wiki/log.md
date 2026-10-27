@@ -83,3 +83,22 @@ Chronological, append-only log of all operations performed on the wiki (ingestio
 - **Updated**:
   - [[index]]: Updated master catalog to 34 structured knowledge nodes (13 entities, 10 concepts, 7 sources, 4 syntheses).
 - **Summary**: Elevated the repository's LLM Wiki into an authoritative, publication-grade computational genomics and evolutionary biology knowledge base.
+
+## [2026-10-28] pipeline | Extended Multi-Dataset Pipeline & Felsenstein Bootstrap Support
+- **Actions**:
+  - Expanded `scripts/phylo_pipeline.py` with multi-dataset support (`col1a1`, `animals`, `tro_seq`).
+  - Added native MEGA format `.meg` parser (`parse_meg_file`) and FASTA reader (`parse_fasta_file`).
+  - Implemented Felsenstein (1985) non-parametric bootstrap resampling (`bootstrap_neighbor_joining`) with canonical unrooted bipartition tracking.
+  - Upgraded standard Newick formatting (`format_newick`) to embed internal branch support numbers and export `.nwk` files across all datasets.
+  - Upgraded publication dark-mode cladogram and distance matrix visualizer (`plot_nj_tree`) with on-branch bootstrap percentage annotations.
+  - Expanded test suite `tests/test_phylo.py` from 7 to 11 unit tests, validating parser extraction, canonical split invariance, embedded Newick labels, and non-parametric bootstrap boundaries (11/11 tests passing in 1.6s).
+  - Executed pipeline end-to-end generating validated Newick and PNG outputs for:
+    - `results/col1a1_analysis/col1a1_nj_tree_k2p.{nwk,png}`
+    - `results/col1a1_analysis/col1a1_nj_tree_jc69.{nwk,png}`
+    - `results/animals_analysis/animals_nj_tree_k2p.{nwk,png}`
+    - `results/animals_analysis/animals_nj_tree_jc69.{nwk,png}`
+    - `results/tro_seq_analysis/tro_seq_nj_tree_k2p.{nwk,png}`
+- **Updated**:
+  - [[Phylo_Pipeline_Script]]: Updated architecture, supported datasets, mathematical formulas, and 11-test verification suite.
+  - [[Animal_Alignments_Dataset]]: Documented 9-taxa benchmark results, mammalian clustering ($d=1.098$, 71% bootstrap), and outgroup branch saturation.
+- **Summary**: Delivered end-to-end standalone phylogenetics computational engine supporting all project datasets with rigorous statistical bootstrap validation.
