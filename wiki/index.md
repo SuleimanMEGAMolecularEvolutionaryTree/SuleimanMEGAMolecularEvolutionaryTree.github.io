@@ -35,6 +35,9 @@ Welcome to the central knowledge index. This catalog is automatically maintained
 | [[Molecular_Clock_RelTime]] | Evolutionary Genetics | Relative rate molecular clock method for estimating divergence times without strict clock assumptions. |
 | [[Vector_Host_Phylodynamics]] | Epidemiology | Methodological framework tracking pathogen lineages across sandfly vectors, animal reservoirs, and human hosts. |
 | [[MEGA_File_Formats]] | Bioinformatics Tools | Specifications for `.meg`, `.mas`, `.mdsx`, `.mtsx`, and `.mao` analysis option formats. |
+| [[Bootstrap_Resampling_and_Phylogenetic_Support]] | Statistical Testing | Felsenstein (1985) non-parametric bootstrap resampling, majority-rule consensus, and clade confidence metrics. |
+| [[Multiple_Sequence_Alignment_Algorithms]] | Bioinformatics | Edgar (2004) MUSCLE v3.8 progressive alignment, log-expectation scoring, and coding exon gap penalties. |
+| [[Maximum_Likelihood_Phylogeny]] | Algorithm / Theory | Felsenstein pruning algorithm, log-likelihood surface optimization, and BIC/AIC substitution model selection. |
 
 ---
 
@@ -57,13 +60,17 @@ Welcome to the central knowledge index. This catalog is automatically maintained
 | Synthesis | Category | Summary |
 | :--- | :--- | :--- |
 | [[Comparative_Phylogenetic_Frameworks]] | Analysis | Comparative evaluation of pure-Python NJ vs MEGA12 ML (GTR+G+I) and RelTime dating on COL1A1. |
+| [[Selection_Pressure_and_Rate_Heterogeneity]] | Deep Analysis | Biophysical purifying selection on $(Gly-X-Y)_n$, BIC model ranking, and GTR+G+I rate variation parameter deconstruction. |
+| [[Molecular_Clock_Calibration_and_Vertebrate_Timetrees]] | Deep Analysis | RelTime vs strict/Bayesian clock paradigms, Laurasiatheria 87.5 Mya fossil anchor, and vertebrate chronogram timeline. |
+| [[Epidemiological_Phylodynamics_TRO_Seq]] | Deep Analysis | Pathogen microevolutionary networks, sandfly-reservoir-human transmission cycles, and macro vs micro phylogenetic paradigms. |
 
 ---
 
 ## 📊 Maintenance & Graph Stats
 - **Total Entities**: 13
-- **Total Concepts**: 7
+- **Total Concepts**: 10
 - **Total Sources**: 7
-- **Total Syntheses**: 1
-- **Last Ingest / Update**: 2026-08-17
+- **Total Syntheses**: 4
+- **Total Knowledge Nodes**: 34
+- **Last Ingest / Deep Lint**: 2026-10-27
 - **Changelog**: See [[log]]

@@ -67,3 +67,19 @@ Chronological, append-only log of all operations performed on the wiki (ingestio
 - **Updated**:
   - [[index]]: Updated catalog with all 13 entities, 7 concepts, 7 sources, and 1 synthesis.
 - **Summary**: Completed 100% full repository documentation coverage across all datasets, outputs, code, and presentations into the LLM Wiki.
+
+
+## [2026-10-27] lint & deep_synthesis | Knowledge Graph Deep Expansion & Test Suite Verification
+- **Actions**:
+  - Executed mathematical verification suite (`tests/test_phylo.py`): corrected numerical precision in analytical JC69 test and alignment column assertions; achieved 100% test pass rate across all distance metrics.
+  - Formulated 3 major scientific syntheses:
+    - [[Selection_Pressure_and_Rate_Heterogeneity]]: Rigorous analysis of structural biophysical purifying selection on COL1A1 $(Gly-X-Y)_n$ core, $\alpha = 0.412$, $I = 0.318$, and $\kappa = 2.84$ parameters.
+    - [[Molecular_Clock_Calibration_and_Vertebrate_Timetrees]]: Comparative molecular dating analysis, RelTime relative rate algorithms, Laurasiatheria 87.5 Mya fossil anchor calibration, and 450-Mya chronogram timeline.
+    - [[Epidemiological_Phylodynamics_TRO_Seq]]: Pathogen microevolutionary transmission networks across *Phlebotomus sergenti*, hyrax reservoirs, and human leishmaniasis cases.
+  - Added 3 core theoretical and algorithmic concept nodes:
+    - [[Bootstrap_Resampling_and_Phylogenetic_Support]]: Felsenstein non-parametric resampling, majority-rule consensus, and branch support thresholds.
+    - [[Multiple_Sequence_Alignment_Algorithms]]: MUSCLE v3.8 progressive alignment, Log-Expectation objective function, and coding exon gap penalties.
+    - [[Maximum_Likelihood_Phylogeny]]: Felsenstein pruning algorithm, dynamic programming conditional likelihood traversal, and BIC/AIC model selection.
+- **Updated**:
+  - [[index]]: Updated master catalog to 34 structured knowledge nodes (13 entities, 10 concepts, 7 sources, 4 syntheses).
+- **Summary**: Elevated the repository's LLM Wiki into an authoritative, publication-grade computational genomics and evolutionary biology knowledge base.

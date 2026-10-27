@@ -14,9 +14,9 @@ class TestPhyloModels(unittest.TestCase):
         
     def test_jc69_standard_val(self):
         """Test JC69 distance with a typical proportion of differences."""
-        # p = 0.1 -> d = -0.75 * ln(1 - 4/3 * 0.1) approx 0.1072958
+        # p = 0.1 -> d = -0.75 * ln(1 - 4/3 * 0.1) approx 0.1073256
         d = jc69_distance(0.1)
-        self.assertAlmostEqual(d, 0.1072958, places=6)
+        self.assertAlmostEqual(d, 0.1073256, places=6)
         
     def test_jc69_infinite_limit(self):
         """JC69 distance should return infinity when base differences are >= 0.75."""
@@ -46,9 +46,10 @@ class TestPhyloModels(unittest.TestCase):
         # Col 2: A / G -> Transition (Purines)
         # Col 3: C / T -> Transition (Pyrimidines)
         # Col 4: A / C -> Transversion (Purine/Pyrim)
-        # Col 5: - / T -> Gap (Ignored in comparison sites)
+        # Col 5: G / G -> Match
+        # Col 6: - / T -> Gap (Ignored in comparison sites)
         aligned_a = "AACAG-"
-        aligned_b = "AGTCTT"
+        aligned_b = "AGTCGT"
         
         counts = compute_alignment_counts(aligned_a, aligned_b)
         
