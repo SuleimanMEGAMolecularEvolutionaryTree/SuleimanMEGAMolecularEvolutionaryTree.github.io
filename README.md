@@ -10,8 +10,15 @@
   [![ITOL](https://img.shields.io/badge/Visualization-ITOL-blue?style=flat-square)](https://itol.embl.de/)
   [![Method](https://img.shields.io/badge/Method-Maximum_Likelihood_|_NJ_|_RelTime-orange?style=flat-square)](https://doi.org/10.1093/molbev/msab120)
   [![Dataset](https://img.shields.io/badge/NCBI-GenBank_Sequences-informational?style=flat-square)](https://www.ncbi.nlm.nih.gov/genbank/)
+  [![Data Access](https://img.shields.io/badge/Research_Data-Private_🔒-f59e0b?style=flat-square)](mailto:suleyman.hacizade1@gmail.com?subject=Access%20Request%20-%20Suleiman%20MEGA%20Molecular%20Evolutionary%20Tree)
+  [![Request Access](https://img.shields.io/badge/Request_Access-suleyman.hacizade1%40gmail.com-ef4444?style=flat-square&logo=gmail&logoColor=white)](mailto:suleyman.hacizade1@gmail.com?subject=Access%20Request%20-%20Suleiman%20MEGA%20Molecular%20Evolutionary%20Tree)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 </div>
+
+> [!IMPORTANT]
+> ### 🔒 Private Research Data & Access Request / Məxfi Tədqiqat Məlumatları və Giriş Müraciəti
+> - **🇦🇿 Azərbaycan dili:** Bu təşkilatın əsas tədqiqat dataları, sekvensiya bazaları, hizalanma faylları və əsas kod repozitoriyası **məxfidir (Private)**. Əgər elmi tədqiqat və ya əməkdaşlıq məqsədilə giriş (access) əldə etmək istəyirsinizsə, elektron poçt vasitəsilə müraciət edə bilərsiniz: **[suleyman.hacizade1@gmail.com](mailto:suleyman.hacizade1@gmail.com?subject=Access%20Request%20-%20Suleiman%20MEGA%20Molecular%20Evolutionary%20Tree)**
+> - **🇬🇧 English:** The primary research datasets, sequence alignments, and core repository of this organization are **Private**. To request access for academic or research collaboration, please contact via email: **[suleyman.hacizade1@gmail.com](mailto:suleyman.hacizade1@gmail.com?subject=Access%20Request%20-%20Suleiman%20MEGA%20Molecular%20Evolutionary%20Tree)**
 
 ## 📌 Overview
 
